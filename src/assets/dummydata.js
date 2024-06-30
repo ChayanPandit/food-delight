@@ -60,6 +60,18 @@ export const restaurantData = [
                 "name": "Jane Smith",
                 "rating": 4,
                 "review": "Amazing pizza, definitely coming back!"
+            },
+            {
+                "id": 11,
+                "name": "Isabella Brown",
+                "rating": 4,
+                "review": "Delicious tacos and guacamole!"
+            },
+            {
+                "id": 12,
+                "name": "James Smith",
+                "rating": 3,
+                "review": "Good food, but could improve on service."
             }
         ],
         "owner": "david.wilson@example.com"
@@ -123,6 +135,18 @@ export const restaurantData = [
                 "name": "Bob Brown",
                 "rating": 3,
                 "review": "The bruschetta was divine!"
+            },
+            {
+                "id": 11,
+                "name": "Isabella Brown",
+                "rating": 4,
+                "review": "Delicious tacos and guacamole!"
+            },
+            {
+                "id": 12,
+                "name": "James Smith",
+                "rating": 3,
+                "review": "Good food, but could improve on service."
             }
         ],
         "owner": "bob.smith@example.com"
@@ -186,6 +210,18 @@ export const restaurantData = [
                 "name": "Dana White",
                 "rating": 4,
                 "review": "The chapli kebabs were amazing!"
+            },
+            {
+                "id": 11,
+                "name": "Isabella Brown",
+                "rating": 4,
+                "review": "Delicious tacos and guacamole!"
+            },
+            {
+                "id": 12,
+                "name": "James Smith",
+                "rating": 3,
+                "review": "Good food, but could improve on service."
             }
         ],
         "owner": "alice.johnson@example.com"

@@ -1,4 +1,4 @@
-import { FaRegStar } from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 
 export default function UserReview({review}){
@@ -7,7 +7,9 @@ export default function UserReview({review}){
         <div className="flex justify-between items-center">
            <p className="text-sm font-semibold">{review.name}</p>
            <div className="flex items-center gap-1 text-yellow-500">
-              <FaRegStar />
+            {[...Array(5)].map((_, i) =>(
+               review.rating >= i+1 ? <FaStar  key={i} className="text-yellow-400" /> : <FaRegStar  key={i} className="text-yellow-400" />
+            ))}       
               <span className="text-sm font-medium">{review.rating}</span>
            </div>
         </div>

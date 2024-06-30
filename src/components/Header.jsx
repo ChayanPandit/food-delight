@@ -22,15 +22,11 @@ export default function Header() {
           <Link className="text-muted-foreground hover:text-foreground" to="/">
             Restaurants
           </Link>
-          <Link className="text-muted-foreground hover:text-foreground" to="/about">
-            About
-          </Link>
-          <Link className="text-muted-foreground hover:text-foreground" to="/contact">
-            Contact
-          </Link>
           {loggedInUser ? (
-            <div className="ml-4 text-muted-foreground hover:text-foreground">
-              Welcome, {getFirstName(loggedInUser.name)}
+            <div className="ml-4 font-semibold hover:text-foreground">
+              <Link to='/profile'> 
+                Welcome, {getFirstName(loggedInUser.name)} 
+              </Link>
             </div>
           ) : (
             <Link className="text-muted-foreground hover:text-foreground" to="/signin">

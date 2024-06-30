@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { restaurantData } from "../../assets/dummydata";
 import { useParams } from "react-router-dom";
-import { FaRegStar } from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
 import MenuItem from "../../components/MenuItem";
 import UserReview from "../../components/UserReview";
 
@@ -70,8 +70,10 @@ export default function Restaurant() {
                    <div className="p-6">
                       <div className="flex items-center justify-between">
                          <div className="flex items-center gap-1 text-yellow-500">
-                           <FaRegStar />
-                            <span className="text-sm font-medium">{restaurant.rating}</span>
+                         {[...Array(5)].map((_, i) =>(
+                           restaurant.rating >= i+1 ? <FaStar  key={i} className="text-yellow-400" /> : <FaRegStar  key={i} className="text-yellow-400" />
+                           ))}                            
+                           <span className="text-md font-medium">{restaurant.rating}</span>
                          </div>
                          <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">Reserve</button>
                       </div>
@@ -82,8 +84,8 @@ export default function Restaurant() {
                             <p className="text-muted-foreground">The {restaurant.name} is a cozy {restaurant.cuisine} restaurant serving classic dishes in a charming setting. With a focus on fresh, seasonal ingredients, the menu offers a taste of authentic {restaurant.cuisine} cuisine.</p>
                          </div>
                          <div>
-                            <h2 className="text-2xl font-medium">Location</h2>
-                            <p className="text-muted-foreground">{restaurant.address}</p>
+                            <h2 className="text-2xl font-medium">location</h2>
+                            <p className="text-muted-foreground">{restaurant.city}, {restaurant.address}</p>
                          </div>
                          <div>
                             <h2 className="text-2xl font-medium">Hours</h2>

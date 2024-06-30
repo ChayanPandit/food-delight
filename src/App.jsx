@@ -9,6 +9,7 @@ import Signup from './pages/user/Signup'
 import Signin from './pages/user/Signin'
 import UserContext from './utils/UserContext'
 import { useState } from 'react'
+import Profile from './pages/user/Profile'
 
 function App() {
   const url = window.location.pathname;
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<AllRestaurants/>} /> 
           <Route path="/restaurant/:id" element={<Restaurant/>} /> 
+          <Route path="/profile" element={<Profile/>} /> 
           <Route path="/about" element={<About/>} /> 
           <Route path="/contact" element={<Contact/>} /> 
           <Route path="/signin" element={<Signin/>} /> 
