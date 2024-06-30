@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { restaurantData } from "../../assets/dummydata";
 import { useParams } from "react-router-dom";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import MenuItem from "../../components/MenuItem";
 import UserReview from "../../components/UserReview";
+import UserContext from "../../utils/UserContext";
 
 export default function Restaurant() {
 
@@ -11,6 +12,7 @@ export default function Restaurant() {
     const [restaurant, setRestaurant] = useState(null);
     const [loading, setLoading] = useState(true);
     const items = restaurant?.menu;
+    const { loggedInUser } = useContext(UserContext);
 
     useEffect(()=>{
         setRestaurant(restaurantData.find(restaurant => restaurant.id == id));
@@ -20,6 +22,18 @@ export default function Restaurant() {
     if (loading) {
         return <p>Loading...</p>;
     }
+
+    const handleEditItem = (itemId) => {
+      // Implement edit functionality here
+   };
+
+   const handleDeleteItem = (itemId) => {
+      const updatedMenu = restaurant.menu.filter(item => item.id !== itemId);
+      const updatedRestaurant = { ...restaurant, menu: updatedMenu };
+      setRestaurant(updatedRestaurant);
+      // Update backend or database here
+   };
+
 
     const groupedByMealType = items.reduce((acc, item) => {
         item.mealType.forEach(meal => {
@@ -52,7 +66,7 @@ export default function Restaurant() {
                                <h2 className="text-2xl font-medium">{mealType}</h2>
                                <ul className="grid gap-4 items-start">
                                {groupedByMealType[mealType].map(item => (
-                                 <MenuItem item={item} key={item.id}/>
+                                 <MenuItem item={item} restaurant={restaurant} loggedInUser={loggedInUser} key={item.id}/>
                                ))}
                                </ul>
                             </div>
@@ -75,7 +89,13 @@ export default function Restaurant() {
                            ))}                            
                            <span className="text-md font-medium">{restaurant.rating}</span>
                          </div>
-                         <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">Reserve</button>
+                         <div>
+                         <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 text-amber-600 hover:text-white border border-amber-700 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 m-2 ">Reserve</button>
+                         
+                         <button type="button" class=" inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 text-red-600 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 m-2">
+                           Delete
+                         </button>
+                         </div>
                       </div>
                       <div data-orientation="horizontal" role="none" className="shrink-0 bg-border h-[1px] w-full my-4"></div>
                       <div className="grid gap-4">

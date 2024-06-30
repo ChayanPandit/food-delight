@@ -109,12 +109,17 @@ export default function Profile () {
                             </div>
                         </div>
                         <div className="flex items-center justify-start pl-4 pb-4">
+
                             <Link
                                 to={`/restaurant/${restaurant.id}`}
-                                className="inline-block rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2"
                             >
-                                View Menu
+                                <button type="button" class="inline-block rounded-md mr-2 text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300">
+                                    View Menu
+                                </button>
                             </Link>
+                            <button type="button" class=" inline-block rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2 text-red-600 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 ">
+                                Delete
+                            </button>
                         </div>
                     </div>
                 ))}
