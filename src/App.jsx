@@ -7,11 +7,16 @@ import Contact from './pages/Contact'
 import About from './pages/About'
 import Signup from './pages/user/Signup'
 import Signin from './pages/user/Signin'
+import UserContext from './utils/UserContext'
+import { useState } from 'react'
 
 function App() {
   const url = window.location.pathname;
+  const [user, setUser] = useState(null);
+
   return (
     <>
+    <UserContext.Provider value={{loggedInUser: user, setUser }}>
       <BrowserRouter>
       {(url != "/signin" && url != "/signup") ? <Header /> : null}{" "}
         <Routes>
@@ -24,6 +29,7 @@ function App() {
         </Routes>
         {(url != "/signin" && url != "/signup") ? <Footer /> : null}{" "}
       </BrowserRouter>
+      </UserContext.Provider>
     </>
   )
 }
