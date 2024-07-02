@@ -1,3 +1,29 @@
+# Schema
+
+## Restaurant
+    --> name
+    --> id
+    --> city
+    --> cuisine
+    --> owner email
+    --> rating
+    --> Menu : (Item1, Item2....)
+    --> Reviews : (Review1, Review 2)
+
+## User
+    --> name
+    --> email
+    --> city
+
+## Item
+    --> name
+    --> price
+    --> meal type
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
